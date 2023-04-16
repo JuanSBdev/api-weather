@@ -1,21 +1,20 @@
 
-  .App {
-    /* Estilos para el tema claro */
-    position: relative;
-    background-color: #fff;
-    color: #000;
-    width: 500%;
-    display: flex;
-    justify-content: center;
-    flex-flow: column nowrap;
-    align-content: center;
-    align-items: center;
-    text-align: center;
-   
-  }
+body{
+  height: 100vh;
+  width: 100vw; 
+   display: flex;
+  flex-flow: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  background-color: #fff;
+  color: #000;
+
+}
+  
   
 
-.App.dark {
+.dark {
   /* Estilos para el tema oscuro */
   background-color: #333;
   color: #fff;

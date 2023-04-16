@@ -1,4 +1,9 @@
 import { useState, useEffect } from 'react'
+import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
 import './App.scss'
 
 function App() {
@@ -35,18 +40,30 @@ function App() {
   // función para manejar el cambio de tema
   const toggleTheme = () => {
     setDarkMode(!darkMode);
+    document.body.classList.toggle('dark');
   }
 
   return (
-    <div className={`App ${darkMode ? 'dark' : ''}`}>
-
-        <h1> {currentTime}</h1>
-        <p>{myResponse.condition.text}</p>
-        <img src={myResponse.condition.icon} alt=" icono" />
+    <Container>
+    <Row>
+    <Col>
+       <h1> {currentTime}</h1>
+      </Col>
+    </Row>
+    <Row>
+      <Col sm={8}>
+        <p>
+        El día está:
+        </p>
         <h2>{myResponse.temp_c + '°'}</h2>
-        <input type="button" value={'dark'} onClick={toggleTheme} />
-
-   </div>
+      </Col>
+      <Col sm={4}>
+        <img src={myResponse.condition.icon} alt=" icono" />
+        <p>{myResponse.condition.text}</p>
+      </Col>
+    </Row>
+  <Button variant='primary' onClick={toggleTheme}>Theme</Button>
+</Container>
   )
 }
 
