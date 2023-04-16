@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react'
+
+import './App.scss'
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-
-import './App.scss'
+import { Footer } from './components/Footer';
 
 function App() {
   const [myResponse, setMyResponse] = useState(null);
@@ -45,7 +46,7 @@ function App() {
 
   return (
     <Container>
-    <Row>
+     <Row>
     <Col>
        <h1> {currentTime}</h1>
       </Col>
@@ -62,7 +63,8 @@ function App() {
         <p>{myResponse.condition.text}</p>
       </Col>
     </Row>
-  <Button variant='primary' onClick={toggleTheme}>Theme</Button>
+    <Button variant='primary' onClick={toggleTheme}>Theme</Button> 
+  <Footer className="footer"></Footer>
 </Container>
   )
 }

@@ -9,13 +9,19 @@ body{
   justify-content: center;
   background-color: #fff;
   color: #000;
-
+  .footer{
+    color: #1b1d95;
+  }
 }
-  
+
+
   
 
 .dark {
   /* Estilos para el tema oscuro */
   background-color: #333;
   color: #fff;
+  .footer{
+    color: #fff;
+  }
 }
