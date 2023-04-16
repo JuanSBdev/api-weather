@@ -49,24 +49,19 @@ function App() {
     <Container>
 <Row>
       <Col>
-         <h1> {currentTime}</h1>
           <Dias text={myResponse.is_day} ></Dias>
+         <h1> {currentTime}</h1>
        </Col>
     </Row>
     <Row>
       <Col sm={8}>
-        <p>
-        Hoy: {myResponse.is_day} 
-
-        </p>
         <h2>{myResponse.temp_c + '°'}</h2>
       </Col>
       <Col sm={4}>
-        <img src={myResponse.condition.icon} alt=" icono" />
+        <img src={myResponse.condition.icon} onClick={toggleTheme} alt=" icono" />
         <p>{myResponse.condition.text}</p>
       </Col>
     </Row>
-    <Button variant='primary' onClick={toggleTheme}>Theme</Button> 
   <Footer className="footer"></Footer>  
     
 </Container>
