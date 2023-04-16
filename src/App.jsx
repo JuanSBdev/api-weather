@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Dias from './components/Dias';
 import { Footer } from './components/Footer';
 
 function App() {
@@ -46,15 +47,17 @@ function App() {
 
   return (
     <Container>
-     <Row>
-    <Col>
-       <h1> {currentTime}</h1>
-      </Col>
+<Row>
+      <Col>
+         <h1> {currentTime}</h1>
+          <Dias text={myResponse.is_day} ></Dias>
+       </Col>
     </Row>
     <Row>
       <Col sm={8}>
         <p>
-        El día está:
+        Hoy: {myResponse.is_day} 
+
         </p>
         <h2>{myResponse.temp_c + '°'}</h2>
       </Col>
@@ -64,7 +67,8 @@ function App() {
       </Col>
     </Row>
     <Button variant='primary' onClick={toggleTheme}>Theme</Button> 
-  <Footer className="footer"></Footer>
+  <Footer className="footer"></Footer>  
+    
 </Container>
   )
 }
