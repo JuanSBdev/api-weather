@@ -27,8 +27,7 @@ function App() {
       .then(response => response.json())
       .then(response => {
         setMyResponse(response.current)
-        console.log(myResponse)
-        console.log(currentTime)
+        // console.log(myResponse)
       })
       .catch(err => console.error(err));
 
