@@ -9,10 +9,22 @@ body{
   justify-content: center;
   background-color: #fff;
   color: #000;
+.asd{
+  position:absolute;
+  top: 2%;
+  right: 2%;
+  img{
+    margin-top: -20%;
+    max-width: 20px;
+    width:fit-content;
+  }
+  }
   .footer{
-    color: #1b1d95;
+    color: #000000;
     position:absolute;
     bottom: 1%;
+    left: 1%;
+    font-size: .6rem;
   }
 }
 

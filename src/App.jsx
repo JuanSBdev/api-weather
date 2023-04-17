@@ -13,7 +13,7 @@ function App() {
   const [myResponse, setMyResponse] = useState(null);
   const [currentTime, setCurrentTime] = useState(new Date().toLocaleTimeString());
   const [darkMode, setDarkMode] = useState(false); // estado para manejar el modo oscuro
-  
+  let img_sol = 'https://cdn-icons-png.flaticon.com/512/6661/6661565.png'
   useEffect(() => {
     const options = {
       method: 'GET',
@@ -69,6 +69,9 @@ function App() {
         <img src={myResponse.condition.icon} onClick={toggleTheme} alt="icono" />
       </Col>
     </Row>
+    <Button className='asd' variant='secondary' onClick={toggleTheme}>
+      <img src={img_sol} alt="" />
+    </Button>
     <Footer className="footer"></Footer>
   </Container>
 )}
