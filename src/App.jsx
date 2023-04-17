@@ -6,6 +6,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Dias from './components/Dias';
+import Buenas from './components/Buenas';
 import { Footer } from './components/Footer';
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
       .then(response => {
         setMyResponse(response.current)
         console.log(myResponse)
+        console.log(currentTime)
       })
       .catch(err => console.error(err));
 
@@ -47,22 +49,30 @@ function App() {
 
   return (
     <Container>
-<Row>
-      <Col>
-          <Dias text={myResponse.is_day} ></Dias>
-         <h1> {currentTime}</h1>
-       </Col>
+{myResponse && (
+  <Container>
+    <Row>
+      <Buenas> </Buenas>
     </Row>
     <Row>
-      <Col sm={8}>
-        <h2>{myResponse.temp_c + '°'}</h2>
-      </Col>
-      <Col sm={4}>
-        <img src={myResponse.condition.icon} onClick={toggleTheme} alt=" icono" />
-        <p>{myResponse.condition.text}</p>
+      <Col>
+        <Dias text={myResponse.is_day}></Dias>
+        <h2>{currentTime}</h2>
       </Col>
     </Row>
-  <Footer className="footer"></Footer>  
+    <Row>
+      <Col >
+        <h3>{myResponse.temp_c + "°"}</h3>
+        <p>{myResponse.condition.text}</p>
+      </Col>
+      <Col>
+        <img src={myResponse.condition.icon} onClick={toggleTheme} alt="icono" />
+      </Col>
+    </Row>
+    <Footer className="footer"></Footer>
+  </Container>
+)}
+
     
 </Container>
   )
