@@ -7,6 +7,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Dias from './components/Dias';
 import Buenas from './components/Buenas';
+// import Location from './components/Location';
 import { Footer } from './components/Footer';
 
 function App() {
@@ -60,12 +61,17 @@ function App() {
       </Col>
     </Row>
     <Row>
+    <p> Tu ubicación</p>
+
+    </Row>
+    <Row>
       <Col >
-        <h3>{myResponse.temp_c + "°"}</h3>
+        <h3>{myResponse.temp_c  + "°C"}</h3>
         <p>{myResponse.condition.text}</p>
       </Col>
       <Col>
         <img src={myResponse.condition.icon} onClick={toggleTheme} alt="icono" />
+
       </Col>
     </Row>
     <Button className='asd' variant='secondary' onClick={toggleTheme}>
