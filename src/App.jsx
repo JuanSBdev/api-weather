@@ -14,7 +14,11 @@ function App() {
   const [myResponse, setMyResponse] = useState(null);
   const [currentTime, setCurrentTime] = useState(new Date().toLocaleTimeString());
   const [darkMode, setDarkMode] = useState(false); // estado para manejar el modo oscuro
+  const [cityUrl, setCityUrl] = useState('Cordoba'); // estado para manejar el ciudad
   let img_sol = 'https://cdn-icons-png.flaticon.com/512/6661/6661565.png'
+  let lugar = cityUrl;
+  let url = `https://weatherapi-com.p.rapidapi.com/current.json?q=${lugar}`
+  
   useEffect(() => {
     const options = {
       method: 'GET',
@@ -23,41 +27,51 @@ function App() {
         'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
       }
     };
+    
 
-    fetch('https://weatherapi-com.p.rapidapi.com/current.json?q=53.1%2C-0.13&lang=es', options)
+      fetch(url, options)
       .then(response => response.json())
-      .then(response => {
-        setMyResponse(response.current)
-        // console.log(myResponse)
-      })
+      .then(response => setMyResponse(response),  
+         console.log(myResponse))
       .catch(err => console.error(err));
+      
+      const intervalId = setInterval(() => {
+        setCurrentTime(new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}))
+      }, 1000)
+          
+      return () => {
+        clearInterval(intervalId)
+      }
+    }, [cityUrl]);
+        
+        // función para manejar el cambio de tema
+        const inputUrl = (event) => {
+          setCityUrl(event.target.value) 
 
-    const intervalId = setInterval(() => {
-      setCurrentTime(new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}))
-    }, 1000)
-
-    return () => {
-      clearInterval(intervalId)
-    }
-  }, []);
-
-  // función para manejar el cambio de tema
-  const toggleTheme = () => {
-    setDarkMode(!darkMode);
-    document.body.classList.toggle('dark');
-  }
-
+        }
+        const toggleTheme = () => {
+          setDarkMode(!darkMode);
+          document.body.classList.toggle('dark');
+        }
+        
   return (
     <Container>
-{myResponse && (
-  <Container>
+    <Row> 
+    <input id='lugar-inp' type="text" onKeyDown={event => {
+  if (event.key === "Enter") {
+    inputUrl(event);
+  }
+}} placeholder={lugar } />
+    </Row>
+  {myResponse && lugar && (
+    <Container>
     <Row>
-      <Buenas> </Buenas>
+       <Buenas > </Buenas>
+        <h2>{currentTime}</h2>
     </Row>
     <Row>
       <Col>
-        <Dias text={myResponse.is_day}></Dias>
-        <h2>{currentTime}</h2>
+        <Dias text={ myResponse.current.is_day}></Dias>
       </Col>
     </Row>
     <Row>
@@ -66,20 +80,22 @@ function App() {
     </Row>
     <Row>
       <Col >
-        <h3>{myResponse.temp_c  + "°C"}</h3>
-        <p>{myResponse.condition.text}</p>
+        <h3>{myResponse.current.temp_c + "°"}</h3>
+        <p>{myResponse.current.condition.text}</p>
       </Col>
       <Col>
-        <img src={myResponse.condition.icon} onClick={toggleTheme} alt="icono" />
-
+      
+        <img src={myResponse.current.condition.icon} onClick={toggleTheme} alt="icono" />
       </Col>
     </Row>
+    <h3> {myResponse.location.name},  {myResponse.location.region} </h3>
+
     <Button className='asd' variant='secondary' onClick={toggleTheme}>
       <img src={img_sol} alt="" />
     </Button>
     <Footer className="footer"></Footer>
   </Container>
-)}
+)}  
 
     
 </Container>
