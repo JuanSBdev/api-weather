@@ -9,9 +9,17 @@ body{
   justify-content: center;
   background-color: #fff;
   color: #000;
-  #lugar-inp{
-    border: none;
+  .input-h3{
+    display: none;
+      #lugar-inp{
+        border: none;
+    }
+    
   }
+  .input-show{
+display: flex;
+  }
+
 .asd{
   position:absolute;
   top: 2%;

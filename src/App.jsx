@@ -86,24 +86,28 @@ function App() {
         <img src={myResponse.current.condition.icon} onClick={toggleTheme} alt="icono" />
       </Col>
     </Row>
-    <h1>
-       <input id='lugar-inp' type="text" onChange={inP} placeholder={lugarDos} onKeyDown={event => {
+    <Row>
 
-         if (event.key === "Enter") {
-           inputUrl(event);
-
+      <h3 className='input-h3' >
+        <input id='lugar-inp' type="text" placeholder={ `${myResponse.location.name}, ${myResponse.location.region}` } onKeyDown={event => {
+          
+          if (event.key === "Enter") {
+            inputUrl(event);
+            
           }
         }}  />
-        </h1>
-    <h3>   {myResponse.location.region} </h3>
+      </h3>
+
+      <h3 className='input-show'>  {myResponse.location.name}, {myResponse.location.region} </h3>
+        </Row>
+
+  </Container>
+)}  
 
     <Button className='asd' variant='secondary' onClick={toggleTheme}>
       <img src={img_sol} alt="" />
     </Button>
     <Footer className="footer"></Footer>
-  </Container>
-)}  
-
     
 </Container>
   )
