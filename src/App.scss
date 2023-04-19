@@ -9,6 +9,9 @@ body{
   justify-content: center;
   background-color: #fff;
   color: #000;
+  #lugar-inp{
+    border: none;
+  }
 .asd{
   position:absolute;
   top: 2%;
@@ -35,6 +38,10 @@ body{
   /* Estilos para el tema oscuro */
   background-color: #333;
   color: #fff;
+  #lugar-inp{
+    border: none;
+    background-color: #333;
+  }
   .footer{
     color: #fff;
   }

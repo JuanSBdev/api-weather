@@ -55,17 +55,22 @@ function App() {
         
   return (
     <Container>
-      <h1>{lugar} </h1>
-  {myResponse && (
-  <Container>
-  <Row>
-
-  <Buenas> </Buenas>
+    <Row> 
+    <input id='lugar-inp' type="text" onKeyDown={event => {
+  if (event.key === "Enter") {
+    inputUrl(event);
+  }
+}} placeholder={lugar } />
+    </Row>
+  {myResponse && lugar && (
+    <Container>
+    <Row>
+       <Buenas > </Buenas>
+        <h2>{currentTime}</h2>
     </Row>
     <Row>
       <Col>
         <Dias text={ myResponse.current.is_day}></Dias>
-        <h2>{currentTime}</h2>
       </Col>
     </Row>
     <Row>
@@ -74,9 +79,12 @@ function App() {
         <p>{myResponse.current.condition.text}</p>
       </Col>
       <Col>
+      
         <img src={myResponse.current.condition.icon} onClick={toggleTheme} alt="icono" />
       </Col>
     </Row>
+    <h3> {myResponse.location.name},  {myResponse.location.region} </h3>
+
     <Button className='asd' variant='secondary' onClick={toggleTheme}>
       <img src={img_sol} alt="" />
     </Button>
