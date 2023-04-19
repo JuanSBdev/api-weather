@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 import './App.scss'
 import Button from 'react-bootstrap/Button';
@@ -8,14 +8,13 @@ import Col from 'react-bootstrap/Col';
 import Dias from './components/Dias';
 import Buenas from './components/Buenas';
 import { Footer } from './components/Footer';
-
 function App() {
+  const [h3ClassName, setH3ClassName] = useState(" ");
   const [myResponse, setMyResponse] = useState(null);
   const [currentTime, setCurrentTime] = useState(new Date().toLocaleTimeString());
   const [darkMode, setDarkMode] = useState(false); // estado para manejar el modo oscuro
   const [cityUrl, setCityUrl] = useState('Cordoba'); // estado para manejar el ciudad
-  const [lugarDos, setLugarDos] = useState(''); // estado para manejar el ciudad
-
+  const h3Ref = useRef(null);
   let img_sol = 'https://cdn-icons-png.flaticon.com/512/6661/6661565.png'
   let lugar = cityUrl;
   let url = `https://weatherapi-com.p.rapidapi.com/current.json?q=${lugar}`
@@ -55,11 +54,13 @@ function App() {
       document.body.classList.toggle('dark');
     }
     //set placeholder
-    const inP = ( )=>{
-      setLugarDos(this.target.value)
-
+    const handleH3Click = ()=> {
+      event.target.style.display = "none";
+      h3Ref.current.style.display = "flex";
+      
     }
-    
+   
+
   return (
     <Container>
     <Row> 
@@ -89,16 +90,17 @@ function App() {
     <Row>
 
       <h3 className='input-h3' >
-        <input id='lugar-inp' type="text" placeholder={ `${myResponse.location.name}, ${myResponse.location.region}` } onKeyDown={event => {
+        <input ref={h3Ref} id='lugar-inp' type="text" placeholder={ `${myResponse.location.name}, ${myResponse.location.region}` } onKeyDown={event => {
           
           if (event.key === "Enter") {
             inputUrl(event);
-            
+            event.target.style.display = "none";
+
           }
         }}  />
       </h3>
 
-      <h3 className='input-show'>  {myResponse.location.name}, {myResponse.location.region} </h3>
+      <h3 className='h3-listo' onClick={handleH3Click}>  {myResponse.location.name}, {myResponse.location.region} </h3>
         </Row>
 
   </Container>
