@@ -73,8 +73,8 @@ function App() {
     </Row>
     <Row>
       <Col>
-        <Dias text={ myResponse.current.is_day}></Dias>
         <h2>{currentTime}</h2>
+        <Dias text={ myResponse.current.is_day}></Dias>
       </Col>
     </Row>
     <Row>
