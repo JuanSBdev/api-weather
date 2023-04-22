@@ -1,18 +1,18 @@
 const Dias = ({text = ''}) => {
   if (text === 0) {
-    return 'domingo';
+    return 'Sunday';
   } else if (text === 1) {
-    return 'lunes';
+    return 'Monday';
   } else if (text === 2) {
-    return 'martes';
+    return 'Tuesday';
   } else if (text === 3) {
-    return 'miércoles';
+    return 'Wednesday';
   } else if (text === 4) {
-    return 'jueves';
+    return 'Thursday';
   } else if (text === 5) {
-    return 'viernes';
+    return 'Friday';
   } else if (text === 6) {
-    return 'sábado';
+    return 'Saturday';
   } else {
     return 'Valor inválido';
   }

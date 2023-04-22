@@ -54,6 +54,8 @@ function App() {
           setDarkMode(!darkMode);
           document.body.classList.toggle('dark');
         }
+        const da = new Date;
+        const tday = da.getDay();
         
   return (
     <Container>
@@ -81,22 +83,26 @@ function App() {
        <Buenas > </Buenas>
         <h2>{currentTime}</h2>
     </Row>
+    
     <Row>
       <Col>
-        <Dias text={ myResponse.current.is_day}></Dias>
       </Col>
     </Row>
     <Row>
-      <Col >
+
+<h3> {myResponse.location.name},  {myResponse.location.region} </h3>
+</Row>
+    <Row>
+      <Col className='col-temp' >
+        <Dias text={ tday }></Dias>
         <h3>{myResponse.current.temp_c + "°"}</h3>
-        <p>{myResponse.current.condition.text}</p>
       </Col>
-      <Col>
-      
+      <Col xs={6} >
+        <p>{myResponse.current.condition.text}</p>
         <img src={myResponse.current.condition.icon} onClick={toggleTheme} alt="icono" />
       </Col>
     </Row>
-    <h3> {myResponse.location.name},  {myResponse.location.region} </h3>
+   
 
     
     <Footer className="footer"></Footer>
