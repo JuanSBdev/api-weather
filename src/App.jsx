@@ -58,21 +58,22 @@ function App() {
   return (
     <Container>
     <Row className='primera'> 
-      <Col >
+      
+      <Col xs={8} >
+        <input id='lugar-inp' type="text" onKeyDown={event => {
+          if (event.key === "Enter") {
+            inputUrl(event);
+         }
+        }} placeholder={lugar } />
+            <img src={img_lupa} className='img-lupa'  alt="lupa" />
+
+    
+    </Col>
+    <Col xs={4} >
       <Button className='button-theme' variant='secondary' onClick={toggleTheme}>
         <img src={img_sol} alt="Toggle Theme" />
       </Button>
       </Col>
-      <Col  >
-    <input id='lugar-inp' type="text" onKeyDown={event => {
-      if (event.key === "Enter") {
-        inputUrl(event);
-      }
-    }} placeholder={lugar } />
-        <img src={img_lupa} className='img-lupa'  alt="lupa" />
-
-    
-    </Col>
     </Row>
   {myResponse && lugar && (
     <Container>
