@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Ref } from 'react'
 
 import './App.scss'
 import Button from 'react-bootstrap/Button';
@@ -16,6 +16,7 @@ function App() {
   const [darkMode, setDarkMode] = useState(false); // estado para manejar el modo oscuro
   const [cityUrl, setCityUrl] = useState('Cordoba'); // estado para manejar el ciudad
   let img_sol = 'https://cdn-icons-png.flaticon.com/512/6661/6661565.png'
+  let img_lupa = 'https://icones.pro/wp-content/uploads/2021/06/icone-loupe-gris.png'
   let lugar = cityUrl;
   let url = `https://weatherapi-com.p.rapidapi.com/current.json?q=${lugar}`
   
@@ -57,11 +58,21 @@ function App() {
   return (
     <Container>
     <Row> 
+      <Col >
+      <Button className='asd' variant='secondary' onClick={toggleTheme}>
+        <img src={img_sol} alt="Toggle Theme" />
+      </Button>
+      </Col>
+      <Col  >
     <input id='lugar-inp' type="text" onKeyDown={event => {
-  if (event.key === "Enter") {
-    inputUrl(event);
-  }
-}} placeholder={lugar } />
+      if (event.key === "Enter") {
+        inputUrl(event);
+      }
+    }} placeholder={lugar } />
+        <img src={img_lupa} className='img-lupa'  alt="lupa" />
+
+    
+    </Col>
     </Row>
   {myResponse && lugar && (
     <Container>
@@ -75,10 +86,6 @@ function App() {
       </Col>
     </Row>
     <Row>
-    <p> Tu ubicación</p>
-
-    </Row>
-    <Row>
       <Col >
         <h3>{myResponse.current.temp_c + "°"}</h3>
         <p>{myResponse.current.condition.text}</p>
@@ -90,9 +97,7 @@ function App() {
     </Row>
     <h3> {myResponse.location.name},  {myResponse.location.region} </h3>
 
-    <Button className='asd' variant='secondary' onClick={toggleTheme}>
-      <img src={img_sol} alt="" />
-    </Button>
+    
     <Footer className="footer"></Footer>
   </Container>
 )}  
