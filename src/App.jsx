@@ -57,9 +57,9 @@ function App() {
         
   return (
     <Container>
-    <Row> 
+    <Row className='primera'> 
       <Col >
-      <Button className='asd' variant='secondary' onClick={toggleTheme}>
+      <Button className='button-theme' variant='secondary' onClick={toggleTheme}>
         <img src={img_sol} alt="Toggle Theme" />
       </Button>
       </Col>
