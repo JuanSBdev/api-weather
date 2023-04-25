@@ -27,7 +27,7 @@ body{
   #lugar-inp{
     border: none;
     background-color: #ffffff;
-
+ 
   }
   .col-temp{
     h3{
@@ -60,6 +60,11 @@ body{
   #lugar-inp{
     border: none;
     background-color: #333;
+    color: rgba(255, 255, 255, 0.492);
+
+    &:focus{
+      color: white;
+      }
   }
   .footer{
     color: #fff;
