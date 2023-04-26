@@ -9,21 +9,27 @@ body{
   justify-content: center;
   background-color: #fff;
   color: #000;
-  .primera{
-    position:absolute;
-  top: 2%;
-  right: 2%;
-  .img-lupa{
-    width: 6%;
+  .containeres{
+    border: 5px solid rgb(0, 0, 0);
+    border-radius: 1rem;
+    padding: 20%;
+    
   }
-  .button-theme{
-    img{
-      margin-top: -20%;
-      max-width: 20px;
-      width:fit-content;
+    .primera{
+      position:absolute;
+      top: 2%;
+      right: 2%;
+      .img-lupa{
+        width: 6%;
+      }
+      .button-theme{
+        img{
+          margin-top: -20%;
+          max-width: 20px;
+          width:fit-content;
+        }
+      }
     }
-    }
-  }
   #lugar-inp{
     border: none;
     background-color: #ffffff;
@@ -52,6 +58,12 @@ body{
   /* Estilos para el tema oscuro */
   background-color: #333;
   color: #fff;
+  .containeres{
+    border: 5px solid rgba(248, 241, 242, 0.313);
+    border-radius: 1rem;
+    padding: 20%;
+    
+  }
   .primera{
   .button-theme{
     background-color: #f3e8b7;

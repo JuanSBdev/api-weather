@@ -58,7 +58,7 @@ function App() {
         const tday = da.getDay();
         
   return (
-    <Container>
+    <Container className='containeres'>
     <Row className='primera'> 
       
       <Col xs={8} >
