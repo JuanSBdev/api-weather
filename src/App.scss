@@ -9,18 +9,28 @@ body{
   justify-content: center;
   background-color: #fff;
   color: #000;
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCQO0m2ZcIL2c-FGKRnedXB-y3q4VsA6ONdQ&usqp=CAU');
+  background-repeat: no-repeat;
+  background-size: cover;
   .containeres{
-    border: 5px solid rgb(0, 0, 0);
+    border: 1px solid rgba(6, 5, 5, 0.267);
     border-radius: 1rem;
     padding: 20%;
+    margin-top: 30%;
+    background-color: #f2e3e30e;
+    box-shadow: 1px 1px 20px 1px rgba(0, 0, 0, 0.398);
+    background-image: url('https://radiomitre-la100-prod.cdn.arcpublishing.com/resizer/3Gz1mgh1-jpEljuPb27L10Hu09c=/filters:format(webp)/cloudfront-us-east-1.images.arcpublishing.com/radiomitre/VNSSNIBWFRELXKS77Y56OR3RTU.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+  
     
-  }
     .primera{
       position:absolute;
-      top: 2%;
-      right: 2%;
+      top: 5%;
+      right: 5%;
       .img-lupa{
-        width: 6%;
+        width: 5%;
+        margin: 2%;
       }
       .button-theme{
         img{
@@ -30,10 +40,12 @@ body{
         }
       }
     }
+  }
   #lugar-inp{
     border: none;
     background-color: #ffffff;
- 
+    border-radius: 1rem;
+    padding: 1%;
   }
   .col-temp{
     h3{
@@ -43,10 +55,13 @@ body{
   
 
   .footer{
-    color: #000000;
+    color: #00000078;
     position:absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
     bottom: 1%;
-    left: 1%;
     font-size: .6rem;
   }
 }
@@ -58,12 +73,16 @@ body{
   /* Estilos para el tema oscuro */
   background-color: #333;
   color: #fff;
+  background-image: none;
+
   .containeres{
-    border: 5px solid rgba(248, 241, 242, 0.313);
+    border: 1px solid rgba(6, 5, 5, 0.267);
     border-radius: 1rem;
     padding: 20%;
-    
-  }
+    margin-top: 30%;
+    background-color: #f2e3e30e;
+    box-shadow: 1px 1px 20px 1px rgba(0, 0, 0, 0.398);
+    background-image: none;
   .primera{
   .button-theme{
     background-color: #f3e8b7;
@@ -78,7 +97,9 @@ body{
       color: white;
       }
   }
+}
+
   .footer{
-    color: #fff;
+    color: #ffffff37;
   }
 }

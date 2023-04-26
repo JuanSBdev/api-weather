@@ -80,18 +80,16 @@ function App() {
   {myResponse && lugar && (
     <Container>
     <Row>
-       <Buenas > </Buenas>
-        <h2>{currentTime}</h2>
-    </Row>
-    
-    <Row>
       <Col>
+       <Buenas > </Buenas>
+      </Col>
+      <Col>
+        <h2>{currentTime}</h2>
       </Col>
     </Row>
     <Row>
-
-<h3> {myResponse.location.name},  {myResponse.location.region} </h3>
-</Row>
+      <h3> {myResponse.location.name},  {myResponse.location.region} </h3>
+    </Row>
     <Row>
       <Col className='col-temp' >
         <Dias text={ tday }></Dias>
