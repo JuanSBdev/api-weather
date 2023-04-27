@@ -8,11 +8,11 @@ body{
   align-content: center;
   justify-content: center;
   background-color: #fff;
-  color: #000;
   background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCQO0m2ZcIL2c-FGKRnedXB-y3q4VsA6ONdQ&usqp=CAU');
   background-repeat: no-repeat;
   background-size: cover;
   .containeres{
+    color: #fff;
     border: 1px solid rgba(6, 5, 5, 0.267);
     border-radius: 1rem;
     padding: 20%;
@@ -101,5 +101,6 @@ body{
 
   .footer{
     color: #ffffff37;
+    justify-content: space-around;
   }
 }

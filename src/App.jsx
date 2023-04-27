@@ -1,4 +1,4 @@
-import { useState, useEffect, Ref } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 import './App.scss'
 import Button from 'react-bootstrap/Button';
@@ -19,7 +19,11 @@ function App() {
   let img_lupa = 'https://icones.pro/wp-content/uploads/2021/06/icone-loupe-gris.png'
   let lugar = cityUrl;
   let url = `https://weatherapi-com.p.rapidapi.com/current.json?q=${lugar}`
-  
+  const cardClima = useRef(null);
+  const cambioHora = function(chooseImg){
+      cardClima.current.style.backgroundImage = chooseImg;
+
+  }
   useEffect(() => {
     const options = {
       method: 'GET',
@@ -58,7 +62,7 @@ function App() {
         const tday = da.getDay();
         
   return (
-    <Container className='containeres'>
+    <Container className='containeres' ref={cardClima}>
     <Row className='primera'> 
       
       <Col xs={8} >
@@ -81,7 +85,7 @@ function App() {
     <Container>
     <Row>
       <Col>
-       <Buenas > </Buenas>
+       <Buenas cambioHora={cambioHora} > </Buenas>
       </Col>
       <Col>
         <h2>{currentTime}</h2>
