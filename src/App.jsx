@@ -36,8 +36,7 @@ function App() {
 
       fetch(url, options)
       .then(response => response.json())
-      .then(response => setMyResponse(response),  
-         console.log(myResponse))
+      .then(response => setMyResponse(response))
       .catch(err => console.error(err ));
       
       const intervalId = setInterval(() => {
