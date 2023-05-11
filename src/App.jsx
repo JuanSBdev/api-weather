@@ -20,6 +20,7 @@ function App() {
   let lugar = cityUrl;
   let url = `https://weatherapi-com.p.rapidapi.com/current.json?q=${lugar}`
   const cardClima = useRef(null);
+  const inputLugar = useRef();
   const cambioHora = function(chooseImg){
       cardClima.current.style.backgroundImage = chooseImg;
 
@@ -37,7 +38,7 @@ function App() {
       fetch(url, options)
       .then(response => response.json())
       .then(response => setMyResponse(response))
-      .catch(err => console.error(err ));
+      .catch(error => console.error('non bueno' ));
       
       const intervalId = setInterval(() => {
         setCurrentTime(new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}))
@@ -51,11 +52,16 @@ function App() {
         // función para manejar el cambio de tema
         const inputUrl = (event) => {
           setCityUrl(event.target.value) 
-
+          event.target.value = '';
         }
         const toggleTheme = () => {
           setDarkMode(!darkMode);
           document.body.classList.toggle('dark');
+        }
+        const esto = () => {
+          console.log(inputLugar.current.value)
+          setCityUrl(inputLugar.current.value);
+          inputLugar.current.value = ''
         }
         const da = new Date;
         const tday = da.getDay();
@@ -65,12 +71,13 @@ function App() {
     <Row className='primera'> 
       
       <Col xs={8} >
-        <input id='lugar-inp' type="text" onKeyDown={event => {
+        <input id='lugar-inp' ref={inputLugar} type="text" onKeyDown={event => {
           if (event.key === "Enter") {
             inputUrl(event);
          }
-        }} placeholder={lugar } />
-            <img src={img_lupa} className='img-lupa'  alt="lupa" />
+        }} placeholder={ `escribe un lugar...`} />
+
+        <img src={img_lupa} className='img-lupa'  onClick={esto} alt="lupa"  />
 
     
     </Col>
@@ -108,7 +115,8 @@ function App() {
     
     <Footer className="footer"></Footer>
   </Container>
-)}  
+)}  : 
+
 
     
 </Container>
