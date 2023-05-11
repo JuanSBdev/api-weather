@@ -59,7 +59,6 @@ function App() {
           document.body.classList.toggle('dark');
         }
         const esto = () => {
-          console.log(inputLugar.current.value)
           setCityUrl(inputLugar.current.value);
           inputLugar.current.value = ''
         }
@@ -70,21 +69,20 @@ function App() {
     <Container className='containeres' ref={cardClima}>
     <Row className='primera'> 
       
-      <Col xs={8} >
-        <input id='lugar-inp' ref={inputLugar} type="text" onKeyPress={event => {
+      <Col xs={9}  className='ms-3 me-1' >
+        <input  id='lugar-inp'  ref={inputLugar} type="text" onKeyDown={event => {
           if (event.key === "Enter") {
             inputUrl(event);
          }
         }} placeholder={ `escribe un lugar...`} />
 
         <img src={img_lupa} className='img-lupa'  onClick={esto} alt="lupa"  />
-
-    
     </Col>
-    <Col xs={4} >
-      <Button className='button-theme' variant='secondary' onClick={toggleTheme}>
-        <img src={img_sol} alt="Toggle Theme" />
-      </Button>
+
+      <Col xs={1} >
+        <Button className='button-theme' variant='secondary' onClick={toggleTheme}>
+          <img src={img_sol} alt="Toggle Theme" />
+        </Button>
       </Col>
     </Row>
   {  myResponse && lugar && myResponse.location ? (
