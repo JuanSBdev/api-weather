@@ -38,7 +38,7 @@ function App() {
       .then(response => response.json())
       .then(response => setMyResponse(response),  
          console.log(myResponse))
-      .catch(err => console.error(err));
+      .catch(err => console.error(err ));
       
       const intervalId = setInterval(() => {
         setCurrentTime(new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}))
