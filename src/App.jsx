@@ -38,7 +38,7 @@ function App() {
       fetch(url, options)
       .then(response => response.json())
       .then(response => setMyResponse(response))
-      .catch(error => console.error('non bueno' ));
+      .catch(error => console.error('non bueno', error));
       
       const intervalId = setInterval(() => {
         setCurrentTime(new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}))
@@ -71,7 +71,7 @@ function App() {
     <Row className='primera'> 
       
       <Col xs={8} >
-        <input id='lugar-inp' ref={inputLugar} type="text" onKeyDown={event => {
+        <input id='lugar-inp' ref={inputLugar} type="text" onKeyPress={event => {
           if (event.key === "Enter") {
             inputUrl(event);
          }
@@ -87,7 +87,7 @@ function App() {
       </Button>
       </Col>
     </Row>
-  {myResponse && lugar && (
+  {  myResponse && lugar && myResponse.location ? (
     <Container>
     <Row>
       <Col>
@@ -115,12 +115,19 @@ function App() {
     
     <Footer className="footer"></Footer>
   </Container>
-)}  : 
+    ) : (<Container>
+    <Row>
+      <Col>
+        <h2>"Be mindful of your spelling"</h2>
+      </Col>
+    </Row>
+    <Footer className="footer"></Footer>
+  </Container>) } 
 
 
     
 </Container>
-  )
+  ) 
 }
 
 export default App;
