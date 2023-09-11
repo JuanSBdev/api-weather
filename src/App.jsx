@@ -37,7 +37,9 @@ function App() {
 
       fetch(url, options)
       .then(response => response.json())
-      .then(response => setMyResponse(response))
+      .then(response => setMyResponse(response) ,
+
+      )
       .catch(error => console.error('non bueno', error));
       
       const intervalId = setInterval(() => {
@@ -54,16 +56,25 @@ function App() {
           setCityUrl(event.target.value) 
           event.target.value = '';
         }
+        
         const toggleTheme = () => {
           setDarkMode(!darkMode);
           document.body.classList.toggle('dark');
         }
+        
         const esto = () => {
           setCityUrl(inputLugar.current.value);
           inputLugar.current.value = ''
         }
         const da = new Date;
         const tday = da.getDay();
+
+
+        
+        useEffect(()=>{
+          console.log(myResponse)
+        },[myResponse])
+
         
   return (
     <Container className='containeres prin' ref={cardClima}>
@@ -74,7 +85,7 @@ function App() {
           if (event.key === "Enter") {
             inputUrl(event);
          }
-        }} placeholder={ `escribe un lugar...`} />
+        }} placeholder={ `Enter place...`} />
 
         <img src={img_lupa} className='img-lupa'  onClick={esto} alt="lupa"  />
     </Col>
@@ -86,27 +97,60 @@ function App() {
       </Col>
     </Row>
   {  myResponse && lugar && myResponse.location ? (
-    <Container>
+    <Container className='container_card'>
     <Row>
-      <Col>
-       <Buenas cambioHora={cambioHora} > </Buenas>
-      </Col>
-      <Col>
-        <h2>{currentTime}</h2>
-      </Col>
+        <h2 className='h2_time' >{myResponse.location.localtime}hs.</h2>
     </Row>
     <Row>
-      <h3> {myResponse.location.name},  {myResponse.location.region} </h3>
+      <Col>
+            <h3> {myResponse.location.name},  {myResponse.location.region}, </h3>
+      <h3>
+             {myResponse.location.country} 
+        </h3>
+      </Col>
+        <Dias text={ tday }/>
     </Row>
     <Row>
+      <Row className='row_temp'>
+
       <Col className='col-temp' >
-        <Dias text={ tday }></Dias>
         <h3>{myResponse.current.temp_c + "°"}</h3>
       </Col>
+      <Col>
+        <Col>
+          <p>{myResponse.current.condition.text}</p>
+           <img src={myResponse.current.condition.icon} onClick={toggleTheme} alt="icono" />
+        </Col>
+       </Col>
+
+     </Row>
+      <Row>
+
+    <Row>
+
       <Col xs={6} >
-        <p>{myResponse.current.condition.text}</p>
-        <img src={myResponse.current.condition.icon} onClick={toggleTheme} alt="icono" />
+        <p>Rain</p>
+        <p>{myResponse.current.precip_mm} mm</p>
+        
       </Col>
+      <Col>
+      <Row  className='wind_row'>
+      <p className='p_wind' >Wind</p>
+        <Col>
+        <p>{myResponse.current.wind_kph} </p>
+        <p>kph </p>
+        
+        </Col>
+        <Col>
+          <p>direction</p>
+          <p>{myResponse.current.wind_dir}</p>
+        </Col>
+
+      </Row>
+      </Col>
+      
+    </Row>
+      </Row>
     </Row>
    
 

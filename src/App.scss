@@ -4,8 +4,6 @@ body{
   width: 100vw; 
    display: flex;
   flex-flow: column;
-  align-items: center;
-  align-content: center;
   justify-content: center;
   background-color: #fff;
   background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCQO0m2ZcIL2c-FGKRnedXB-y3q4VsA6ONdQ&usqp=CAU');
@@ -13,21 +11,19 @@ body{
   background-size: cover;
   .containeres{
     color: #fff;
-    border: 1px solid rgba(6, 5, 5, 0.267);
-    border-radius: 1rem;
-    padding: 20%;
-    margin-top: 30%;
+    border-radius: .5rem;
+    padding: 2%;
     background-color: #f2e3e30e;
     box-shadow: 1px 1px 20px 1px rgba(0, 0, 0, 0.398);
-    background-image: url('https://radiomitre-la100-prod.cdn.arcpublishing.com/resizer/3Gz1mgh1-jpEljuPb27L10Hu09c=/filters:format(webp)/cloudfront-us-east-1.images.arcpublishing.com/radiomitre/VNSSNIBWFRELXKS77Y56OR3RTU.png');
+    // background-image: url('https://radiomitre-la100-prod.cdn.arcpublishing.com/resizer/3Gz1mgh1-jpEljuPb27L10Hu09c=/filters:format(webp)/cloudfront-us-east-1.images.arcpublishing.com/radiomitre/VNSSNIBWFRELXKS77Y56OR3RTU.png');
     background-repeat: no-repeat;
     background-size: cover;
-    width: 120%;
-    min-height: 500px;
+    width: 100%;
     .primera{
-      position:absolute;
-      top: 5%;
-      right: 5%;
+      input{
+        height: 50%;
+        font-size: .8rem;
+      }
       .img-lupa{
         width: 5%;
         margin: 2%;
@@ -40,6 +36,27 @@ body{
         }
       }
     }
+  .container_card{
+    width: 60%;
+    margin-top: 5%;
+    .h2_time{
+      color: gray;
+      font-size: 1rem;
+      display: flex;
+      justify-content: end;
+    }
+    .row_temp{
+      border-bottom: 1px solid rgb(167, 167, 167);
+      padding-bottom: 2%;
+      margin-bottom: 5%;
+    }
+    .wind_row{
+      border-radius: 1rem;
+    }
+    .p_wind{
+      margin-left: 15%;
+    }
+  }
   }
   #lugar-inp{
     border: none;
