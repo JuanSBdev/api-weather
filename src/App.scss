@@ -1,7 +1,6 @@
 
 body{
   overflow: hidden;
-
   height: 100vh;
   width: 100vw; 
    display: flex;
@@ -11,11 +10,14 @@ body{
   background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCQO0m2ZcIL2c-FGKRnedXB-y3q4VsA6ONdQ&usqp=CAU');
   background-repeat: no-repeat;
   background-size: cover;
+  
   .containeres{
     color: #fff;
     border-radius: .5rem;
     padding: 2%;
-    background-color: #f2e3e30e;
+    
+    background-color: #788ff4;
+    
     box-shadow: 1px 1px 20px 1px rgba(0, 0, 0, 0.398);
     // background-image: url('https://radiomitre-la100-prod.cdn.arcpublishing.com/resizer/3Gz1mgh1-jpEljuPb27L10Hu09c=/filters:format(webp)/cloudfront-us-east-1.images.arcpublishing.com/radiomitre/VNSSNIBWFRELXKS77Y56OR3RTU.png');
     background-repeat: no-repeat;
@@ -41,6 +43,7 @@ body{
   .container_card{
     width: 60%;
     margin-top: 5%;
+    
     .h2_time{
       color: gray;
       font-size: 1rem;
