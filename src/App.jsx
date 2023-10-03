@@ -42,13 +42,7 @@ function App() {
       )
       .catch(error => console.error('non bueno', error));
       
-      const intervalId = setInterval(() => {
-        setCurrentTime(new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}))
-      }, 1000)
-          
-      return () => {
-        clearInterval(intervalId) 
-      }
+     
     }, [cityUrl]);
         
         // función para manejar el cambio de tema
@@ -71,9 +65,9 @@ function App() {
 
 
         
-        useEffect(()=>{
-          console.log(myResponse)
-        },[myResponse])
+        // useEffect(()=>{
+        //   console.log(myResponse)
+        // },[myResponse])
 
         
   return (
